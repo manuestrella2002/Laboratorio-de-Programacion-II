@@ -40,6 +40,8 @@ namespace Ejercicio_4_Recursion
 
         static string Palindromo2(string texto)
         {
+            texto=texto.ToLower();
+
             if (texto.Length % 2==0)
             {
                 return "No es Palindromo";
