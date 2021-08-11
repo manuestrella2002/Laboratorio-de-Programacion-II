@@ -11,7 +11,7 @@ namespace Ejercicio_5_Recursion
 
         static int Vocales(string Palabra)
         {
-            int acum;
+            int acum=0;
             if (Palabra.Length==0)
             {
                 return 0;
