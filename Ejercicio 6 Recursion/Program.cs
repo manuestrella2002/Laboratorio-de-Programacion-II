@@ -26,7 +26,7 @@ namespace Ejercicio_6_Recursion
         }
         static void Main(string[] args)
         {
-            int numero = -2;
+            int numero = 2;
             Console.WriteLine("La suma de los cuadrados es: {0}", SumaCuadrados(numero));
 
 
