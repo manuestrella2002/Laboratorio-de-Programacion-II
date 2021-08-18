@@ -14,7 +14,10 @@ namespace Matriz_Percolacion
             // (entre 0 y 100) de estar llena
             public static bool[,] random(int n, int p)
             {
-                var rand = new Random(25); // Sacar el numero entre parentesis para semillas aleatorias
+                
+                //var rand = new Random(Guid.NewGuid().GetHashCode()); // Sacar el numero entre parentesis para semillas aleatorias
+                var rand = new Random(8); // Sacar el numero entre parentesis para semillas aleatorias
+
                 int devuelto;
                 bool[,] a = new bool[n, n];
                 for (int i = 0; i < n; i++)
@@ -60,14 +63,39 @@ namespace Matriz_Percolacion
             public static void flujo(bool[,] original, bool[,] llena, int i, int j)
             {
                 int n = original.GetLength(0);
-
-                // casos base
-                if (original[0,0]==false)
+                if (i == n)
                 {
-                    llena[i,j] == false;
+                    return;
                 }
-                // casos recursivos
+                if (original[i, j] == true)
+                {
+                    llena[i, j] = true;
+                    i++;
+                    flujo(original, llena, i, j);
 
+                }
+                
+                if (j>0 && i>0 && original[i-1,j-1]==true)
+                {
+                    llena[i-1, j - 1] = true;
+                    j--;
+                    flujo(original, llena, i, j);
+                }
+                
+                /*
+                else if (original[i, j] == true)
+                {
+                    llena[i, j + 1] = true;
+                    j++;
+                    flujo(original, llena, i, j);
+                }
+                else if (j > 0 && original[i, j - 1] == true)
+                {
+                    llena[i, j - 1] = true;
+                    j--;
+                    flujo(original, llena, i, j);
+                }
+                */
             }
 
             // Percola la matriz?
