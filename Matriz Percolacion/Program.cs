@@ -63,10 +63,11 @@ namespace Matriz_Percolacion
             public static void flujo(bool[,] original, bool[,] llena, int i, int j)
             {
                 int n = original.GetLength(0);
-                if (i == n)
+                if (i >= n || j >= n || i < 0 || j < 0) 
                 {
                     return;
                 }
+
                 if (original[i, j] == true)
                 {
                     llena[i, j] = true;
