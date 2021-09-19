@@ -99,6 +99,7 @@ namespace Matriz_Percolacion
                 */
             }
 
+
             // Percola la matriz?
             public static bool percolates(bool[,] original)
             {
